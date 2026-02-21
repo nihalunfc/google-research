@@ -1,33 +1,32 @@
-# 🏥 MedChron: Personal Medical Narrative AI
+# 🧠 MedChron: Passive Mental Health Phenotyping
 ### Google MedGemma Impact Challenge | Kaggle 2026
 
-**MedChron** is a stylish, privacy-first application designed to transform fragmented health data into a cohesive longitudinal medical narrative. Built using **Google’s MedGemma 1.5** and the **HAI-DEF** ecosystem, it bridges the gap between patient-logged symptoms and actionable clinical insights.
+**MedChron** is a stylish, privacy-first behavioral analysis engine designed to transform personal device activity into live mental health insights. Built on **Google’s MedGemma 1.5**, it uses passive sensing to detect shifts in sleep patterns, cognitive load, and eye health without requiring any manual user input.
 
 ---
 
-## 🚀 Project Vision
-Healthcare is often a series of snapshots. **MedChron** provides the "film"—a continuous, AI-reasoned record of a patient's health journey. This is particularly vital for communities managing chronic conditions or navigating new healthcare systems (like international students and immigrants in Canada).
+## 🚀 The Vision: Beyond Self-Reporting
+Traditional mental health tracking is flawed because it relies on subjective self-reports. **MedChron** introduces **Digital Phenotyping**—using the "digital exhaust" of our daily lives as a biological signal:
 
-### Key Features
-* **Longitudinal Reasoning:** Powered by MedGemma 1.5 to correlate recovery times and symptom intensity over months, not just days.
-* **Vitals & Wearable Hub:** Seamlessly integrates Resting Heart Rate (RHR), sleep, and activity data to detect physiological "noise" before symptoms peak.
-* **FemTech Integration:** Specialized tracking for menstrual cycles and PCOD/PCOS symptoms, utilizing AI to apply the Rotterdam Criteria for decision support.
-* **The "Vault" (Edge AI):** Local inference via **MedGemma 1.5 4B** ensures that sensitive medical data never leaves the user's device.
+* **Sleep Mapping via Inactivity:** Uses 15-minute "inactivity bins" on Android/iOS to infer deep rest periods and sleep hygiene without a wearable.
+* **Cognitive Load Tracking:** Analyzes "App Switching Density" and laptop processing intensity to detect early signs of stress or burnout.
+* **Centralized Device Repo:** Connects a single user’s data across mobile (Google Health Connect) and personal laptops via a secure Google Account integration.
+* **Eye Health & Reset Alerts:** Monitors continuous screen exposure and ambient light to suggest "Brain Resets" and blue-light breaks.
 
 ---
 
 ## 🛠️ Technical Stack
-* **Core Model:** `google/medgemma-1.5-4b-it` (Multimodal Medical Reasoning)
-* **Personalization:** `Gemini 1.5 Pro` (Adaptive user interface & peer-like support)
-* **Data Hub:** FHIR-lite (Fast Healthcare Interoperability Resources)
-* **Security:** AES-256 Local Encryption & E2EE sharing protocols
-* **Environment:** Kaggle Notebooks (Dual T4 GPU) & GitHub
+* **Core AI Engine:** `google/medgemma-1.5-4b-it` (Specialized in longitudinal behavioral reasoning).
+* **Personalization Layer:** **Gemini 1.5 Pro** (Converts raw data into empathetic, student-friendly live reports).
+* **Data Standard:** FHIR-lite for cross-platform behavioral logs.
+* **Compute:** Kaggle Notebooks (Dual T4 GPU) with 4-bit quantization via `bitsandbytes`.
+* **Privacy:** **Edge AI Architecture** — behavioral analysis happens locally to ensure medical data is end-to-end encrypted and user-owned.
 
 ---
 
 ## 📂 Repository Structure
 ```text
-├── notebooks/          # Kaggle Notebook exports (.ipynb)
-├── src/                # Inference engines & clinical NLP modules
-├── data/               # FHIR-compliant synthetic health generators
-└── docs/               # Technical write-up & MedChron Brand Assets
+├── notebooks/          # Kaggle Notebooks: Modeling Phone/Laptop activity logs
+├── src/                # Scripts for passive data extraction (UsageStats, ScreenEvents)
+├── data/               # Synthetic "Digital Phenotype" datasets (No real PHI)
+└── docs/               # Research write-up on passive sensing & mental health metrics
