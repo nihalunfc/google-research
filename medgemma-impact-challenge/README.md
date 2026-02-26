@@ -34,7 +34,7 @@ Traditional mental health tracking is flawed because it relies on subjective sel
 ---
 
 ## 📂 Repository Structure
-
+```text
 ├── docs/
 │   ├── ARCHITECTURE.md       <-- (Paste the text above here)
 │   └── sample_report.md      <-- (Paste your MedGemma output here)
