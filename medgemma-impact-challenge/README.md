@@ -23,14 +23,6 @@ Traditional mental health tracking is flawed because it relies on subjective sel
 * **Privacy:** **Edge AI Architecture** — behavioral analysis happens locally to ensure medical data is end-to-end encrypted and user-owned.
 
 ---
-
-## 📂 Repository Structure
-```text
-├── notebooks/          # Kaggle Notebooks: Modeling Phone/Laptop activity logs
-├── src/                # Scripts for passive data extraction (UsageStats, ScreenEvents)
-├── data/               # Synthetic "Digital Phenotype" datasets (No real PHI)
-└── docs/               # Research write-up on passive sensing & mental health metrics
-
 ## 📈 Project Activity & Development Log
 | Date | Milestone | Status | Technical Notes |
 | :--- | :--- | :--- | :--- |
@@ -39,3 +31,11 @@ Traditional mental health tracking is flawed because it relies on subjective sel
 | **2026-02-26** | MedGemma 1.5 Reasoning | ✅ | Successfully loaded 4-bit Quantized Model on Dual T4 GPUs. |
 | **2026-02-27** | Data Hub Architecture | 🏗️ | Designing Google Health Connect & Cross-platform sync. |
 | **2026-03-01** | UI Prototype | ⏳ | Planning Streamlit dashboard for "Live Mental Health Reports." |
+---
+
+## 📂 Repository Structure
+```text
+├── notebooks/          # Kaggle Notebooks: Modeling Phone/Laptop activity logs
+├── src/                # Scripts for passive data extraction (UsageStats, ScreenEvents)
+├── data/               # Synthetic "Digital Phenotype" datasets (No real PHI)
+└── docs/               # Research write-up on passive sensing & mental health metrics
