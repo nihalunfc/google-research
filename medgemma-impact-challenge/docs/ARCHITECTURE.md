@@ -9,7 +9,7 @@ MedChron aggregates "digital exhaust" from three primary sources:
 
 * **Mobile (Android/iOS):** Uses **Google Health Connect** and **Apple HealthKit** to pull device inactivity (sleep proxy), step counts, and screen-time categories.
 * **Laptop (Windows/macOS/Linux):** A lightweight background service (Python/Rust) monitors CPU load spikes and "App-Switching Density" (Window focus changes).
-* **Central Repository:** All raw time-series data is synced to a private, encrypted folder in the user's **Google Drive/Cloud**, accessible only by the MedChron local instance.
+* **Central Repository:** All raw time-series data is synced to a private, encrypted folder in the user's **Google Drive/Cloud**, accessible only by the MedChron local instance. 
 
 ---
 
