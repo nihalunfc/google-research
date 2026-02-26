@@ -34,8 +34,13 @@ Traditional mental health tracking is flawed because it relies on subjective sel
 ---
 
 ## 📂 Repository Structure
-```text
-├── notebooks/          # Kaggle Notebooks: Modeling Phone/Laptop activity logs
-├── src/                # Scripts for passive data extraction (UsageStats, ScreenEvents)
-├── data/               # Synthetic "Digital Phenotype" datasets (No real PHI)
-└── docs/               # Research write-up on passive sensing & mental health metrics
+
+├── docs/
+│   ├── ARCHITECTURE.md       <-- (Paste the text above here)
+│   └── sample_report.md      <-- (Paste your MedGemma output here)
+├── src/
+│   ├── data_generator.py     <-- (The script you ran to make the JSON)
+│   └── inference_engine.py   <-- (The script that loads MedGemma)
+├── data/
+│   └── digital_phenotype.json <-- (The output from your generator)
+└── README.md                 <-- (The main file with the Progress Log)
