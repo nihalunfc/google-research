@@ -100,7 +100,6 @@ This will generate the synthetic logs, load the quantized weights, and produce t
 ```
 ## Full Repository Structure
 
-```text
 .
 ├── data/
 │   ├── digital_phenotype_logs.json # Initial passive sensing data simulator
