@@ -5,7 +5,6 @@ This repository serves as a centralized collection for all projects, research, a
 ## Directory Overview
 
 * **/medgemma-impact-challenge**: A specialized research prototype for passive mental health phenotyping using MedGemma 1.5. This project focuses on edge-based, privacy-first behavioral analysis.
-* **/kaggle-competitions**: (Future) Solutions, notebooks, and datasets for various Google-hosted Kaggle competitions.
 * **/gdgc-projects**: (Future) Projects and prototypes developed for Google Developer Group (GDG) events and challenges.
 * **/gen-ai-labs**: (Future) Experimental work utilizing Gemini, PaLM, and other Google Generative AI models.
 
