@@ -82,7 +82,22 @@ To reproduce this project in a Kaggle or local GPU environment:
 ### 2. Dependency Installation
 ```python
 !pip install -q -U bitsandbytes>=0.46.1 transformers accelerate
+```
 
+*Note: A session restart is mandatory after installation to initialize the updated bitsandbytes library.*
+
+### 3. Running the Full Pipeline
+
+Navigate to the `src/` directory and execute the inference script:
+
+```bash
+python src/full_loop_inference.py
+
+```
+
+This will generate the synthetic logs, load the quantized weights, and produce the final `ui_snapshot.json` file.
+
+```
 ## Full Repository Structure
 
 ```text
@@ -103,6 +118,7 @@ To reproduce this project in a Kaggle or local GPU environment:
 │   ├── security_vault.py           # User ID anonymization and log encryption simulation
 │   └── ui_dashboard.py             # Streamlit prototype for result visualization
 └── README.md                       # Primary project documentation
+```
 
 
 
