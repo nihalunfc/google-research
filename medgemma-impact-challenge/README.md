@@ -103,7 +103,7 @@ This will generate the synthetic logs, load the quantized weights, and produce t
 ```text
 .
 ├── data/
-│   ├── digital_phenotype_logs.json # Initial simulated sensing data
+│   ├── digital_phenotype_logs.json # Initial passive sensing data simulator
 │   ├── full_loop_data.json         # Master 24-hour activity logs (Input)
 │   └── ui_snapshot.json            # AI-generated report for dashboard (Output)
 ├── docs/
@@ -111,14 +111,15 @@ This will generate the synthetic logs, load the quantized weights, and produce t
 │   ├── PRIVACY.md                  # Ethics, data minimization, and zero-knowledge framework
 │   ├── inference_sample.md         # Raw logs of MedGemma reasoning chains
 │   └── sample_output.md            # Formatted MedChron Live Report
+├── notebooks/
+│   └── medchron_analysis.ipynb     # Full Kaggle notebook with end-to-end execution
 ├── src/
-│   ├── data_mapper.py              # Normalizes raw OS signals into FHIR-lite structures
-│   ├── full_loop_inference.py      # End-to-end pipeline: Data -> Load -> Reason -> Save
-│   ├── inference_engine.py         # Dedicated module for model quantization and loading
-│   ├── security_vault.py           # User ID anonymization and log encryption simulation
-│   └── ui_dashboard.py             # Streamlit prototype for result visualization
+│   ├── data_mapper.py              # Normalizes raw OS signals into AI-ready structures
+│   ├── full_loop_inference.py      # End-to-end pipeline execution script
+│   ├── inference_engine.py         # Module for MedGemma analysis and engine setup
+│   ├── security_vault.py           # User ID anonymization and log encryption logic
+│   └── ui_dashboard.py             # Streamlit prototype for mental health reporting
 └── README.md                       # Primary project documentation
-```
 
 
 
