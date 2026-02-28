@@ -1,0 +1,25 @@
+# Python 
+__pycache__/
+*.py[cod]
+*$py.class
+.venv/
+venv/
+
+# Environment / Secrets
+.env
+.huggingface/
+token.txt
+
+# Large Model Files & Data
+*.bin
+*.pt
+*.pth
+*.gguf
+*.jsonl
+data/*.json
+!data/full_loop_data.json
+!data/ui_snapshot.json
+
+# Kaggle / System
+.ipynb_checkpoints/
+.virtual_documents/
