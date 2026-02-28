@@ -1,26 +1,26 @@
-# 🧠 MedChron: Passive Mental Health Phenotyping
-### Google MedGemma Impact Challenge | Kaggle 2026
+# MedChron: Passive Mental Health Phenotyping
+### Edge-AI Behavioral Analysis Engine | Research Prototype
 
-**MedChron** is a stylish, privacy-first behavioral analysis engine designed to transform personal device activity into live mental health insights. Built on **Google’s MedGemma 1.5**, it uses passive sensing to detect shifts in sleep patterns, cognitive load, and eye health without requiring any manual user input.
+MedChron is a privacy-first behavioral analysis platform designed to transform "digital exhaust"—passive device telemetry—into actionable mental health insights. By leveraging local execution of **Google’s MedGemma 1.5**, the system detects shifts in circadian rhythms, cognitive load, and burnout risk without requiring active user input.
 
----
-
-## 🚀 The Vision: Beyond Self-Reporting
-Traditional mental health tracking is flawed because it relies on subjective self-reports. **MedChron** introduces **Digital Phenotyping**—using the "digital exhaust" of our daily lives as a biological signal:
-
-* **Sleep Mapping via Inactivity:** Uses 15-minute "inactivity bins" on Android/iOS to infer deep rest periods and sleep hygiene without a wearable.
-* **Cognitive Load Tracking:** Analyzes "App Switching Density" and laptop processing intensity to detect early signs of stress or burnout.
-* **Centralized Device Repo:** Connects a single user’s data across mobile (Google Health Connect) and personal laptops via a secure Google Account integration.
-* **Eye Health & Reset Alerts:** Monitors continuous screen exposure and ambient light to suggest "Brain Resets" and blue-light breaks.
+> **Note on Submission:** This project was developed for the **Google MedGemma Impact Challenge (2026)**. Although the official submission window closed prior to final completion, the project was fully realized as a research prototype to demonstrate the potential of medical LLMs in passive sensing.
 
 ---
 
-## 🛠️ Technical Stack
-* **Core AI Engine:** `google/medgemma-1.5-4b-it` (Specialized in longitudinal behavioral reasoning).
-* **Personalization Layer:** **Gemini 1.5 Pro** (Converts raw data into empathetic, student-friendly live reports).
-* **Data Standard:** FHIR-lite for cross-platform behavioral logs.
-* **Compute:** Kaggle Notebooks (Dual T4 GPU) with 4-bit quantization via `bitsandbytes`.
-* **Privacy:** **Edge AI Architecture** — behavioral analysis happens locally to ensure medical data is end-to-end encrypted and user-owned.
+## Project Objectives
+* **Eliminate Self-Reporting Bias**: Move from subjective user surveys to objective "Digital Phenotyping" based on device usage patterns.
+* **Privacy-First Architecture**: Utilize Edge AI to ensure sensitive behavioral data is processed locally, never leaving the user's environment.
+* **Longitudinal Reasoning**: Use MedGemma’s medical reasoning capabilities to correlate fragmented sleep with daytime cognitive performance.
+
+---
+
+## Technical Stack & Services
+* **Core Model**: `google/medgemma-1.5-4b-it` (Specialized in longitudinal behavioral reasoning).
+* **Compute**: Kaggle Dual T4 GPU environment.
+* **Quantization**: 4-bit NormalFloat (NF4) via `bitsandbytes` to optimize for edge hardware.
+* **Inference**: Hugging Face Transformers & Accelerate (Device mapping for dual-GPU load balancing).
+* **Data Standard**: FHIR-lite behavioral observation structures.
+* **UI Layer**: Streamlit (Python-based dashboard prototyping).
 
 ---
 ## 📈 Project Activity & Development Log
@@ -44,20 +44,65 @@ Successfully integrated **MedGemma 1.5 4B** (quantized to 4-bit) with a custom *
 2. **Burnout Markers:** Sustained 90% CPU load during late-evening hours.
 3. **Anxiety Signals:** 3x baseline app-switching frequency during morning hours.
 
-### 🛠️ Tech Stack
-- **AI Model:** Google MedGemma 1.5 4B (Instruction Tuned)
-- **Environment:** Kaggle Dual T4 GPU
-- **Libraries:** Hugging Face Transformers, BitsAndBytes (4-bit NF4), PyTorch
-- **Architecture:** Local-first / Zero-Knowledge Privacy Model
+## File Manifest and Descriptions
 
-## 📂 Repository Structure
+### Data Layer (/data)
+* **full_loop_data.json**: Contains 1,440 minutes of simulated telemetry, including app-switch density, phone screen-on events, and laptop CPU utilization.
+* **ui_snapshot.json**: The processed result from the AI, containing the "Live Narrative" and calculated burnout risk status.
+
+### Documentation Layer (/docs)
+* **ARCHITECTURE.md**: Details the three-tier system: Ingestion (Mobile/PC), Processing (MedGemma), and Visualization (Streamlit).
+* **PRIVACY.md**: Outlines the ethical safeguards, specifically the "Local-Only" processing mandate to protect user medical data.
+
+### Source Code Layer (/src)
+* **full_loop_inference.py**: The primary execution script. It generates a fresh data cycle, loads the model in 4-bit, and generates the mental health report.
+* **data_mapper.py**: Acts as the "translator" between raw hardware signals and high-level concepts (e.g., converting app launches into "Cognitive Load").
+* **security_vault.py**: Implements SHA-256 hashing for user anonymization to ensure the AI reasoning engine never sees a user's real name.
+
+---
+
+## How the System Works: Technical Logic
+
+1. **Passive Ingestion**: The system monitors "Device Inactivity Bins" on mobile to infer sleep segments and tracks "Application Switching Density" on the laptop to measure multitasking intensity.
+2. **Signal Normalization**: `data_mapper.py` aggregates these raw signals into an AI-ready prompt, framing the data within a clinical context.
+3. **Local Reasoning**: MedGemma 1.5 4B processes the prompt. Using its medical training, it identifies anomalies—such as phone usage during typical REM cycles or sustained high-CPU usage during rest hours.
+4. **Insight Generation**: The engine outputs a "MedChron Live Report" which categorizes the user's current behavioral state.
+
+---
+
+## Setup and Execution Guide
+
+To reproduce this project in a Kaggle or local GPU environment:
+
+### 1. Environment Requirements
+* **GPU**: Minimum 12GB VRAM (T4 or higher recommended).
+* **Hugging Face Access**: You must be authorized to use the gated `google/medgemma-1.5-4b-it` model.
+* **Kaggle Secrets**: Store your Hugging Face token as a secret named `HF_TOKEN`.
+
+### 2. Dependency Installation
+```python
+!pip install -q -U bitsandbytes>=0.46.1 transformers accelerate
+
+## Full Repository Structure
+
 ```text
-├── docs/
-│   ├── ARCHITECTURE.md       <-- (Paste the text above here)
-│   └── sample_report.md      <-- (Paste your MedGemma output here)
-├── src/
-│   ├── data_generator.py     <-- (The script you ran to make the JSON)
-│   └── inference_engine.py   <-- (The script that loads MedGemma)
+.
 ├── data/
-│   └── digital_phenotype.json <-- (The output from your generator)
-└── README.md                 <-- (The main file with the Progress Log)
+│   ├── digital_phenotype_logs.json # Initial simulated sensing data
+│   ├── full_loop_data.json         # Master 24-hour activity logs (Input)
+│   └── ui_snapshot.json            # AI-generated report for dashboard (Output)
+├── docs/
+│   ├── ARCHITECTURE.md             # Technical system design and data ingestion layers
+│   ├── PRIVACY.md                  # Ethics, data minimization, and zero-knowledge framework
+│   ├── inference_sample.md         # Raw logs of MedGemma reasoning chains
+│   └── sample_output.md            # Formatted MedChron Live Report
+├── src/
+│   ├── data_mapper.py              # Normalizes raw OS signals into FHIR-lite structures
+│   ├── full_loop_inference.py      # End-to-end pipeline: Data -> Load -> Reason -> Save
+│   ├── inference_engine.py         # Dedicated module for model quantization and loading
+│   ├── security_vault.py           # User ID anonymization and log encryption simulation
+│   └── ui_dashboard.py             # Streamlit prototype for result visualization
+└── README.md                       # Primary project documentation
+
+
+
